@@ -1,5 +1,5 @@
 '''
-Problem: https://www.hackerrank.com/contests/w33/challenges/twin-arrays/submissions/code/1302178640
+Problem: https://www.hackerrank.com/contests/w33/challenges/twin-arrays
 Solved: True
 '''
 
