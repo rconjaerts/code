@@ -1,0 +1,50 @@
+'''
+Problem: https://www.hackerrank.com/challenges/encryption
+Solved: True
+'''
+
+#!/bin/python3
+
+import sys
+import math
+
+def create_matrix(text, numb_r, size_r):
+    matrix = []
+    
+    for i in range(numb_r):
+        matrix.append(list(text[i*size_r:(i+1)*size_r]))
+        
+    return matrix
+
+def print_matrix(M):
+    total = []
+    
+    for _ in range(len(M[0])):
+        total.append([])
+    
+    for x in M:
+        for i in range(len(x)):
+            total[i].append(x[i])
+    
+    result = ''
+    for x in total:
+        result += ''.join(x)+' '
+    
+    print(result)
+    
+s = input().strip()
+length = len(s)
+s_sq = math.sqrt(length)
+
+fl = math.floor(s_sq)
+cl = math.ceil(s_sq)
+M = []
+
+if fl**2 >= length:
+    M = create_matrix(s, fl, fl)
+elif fl*cl >= length:
+    M = create_matrix(s, fl, cl)
+else:
+    M = create_matrix(s, cl, cl)
+    
+print_matrix(M)
