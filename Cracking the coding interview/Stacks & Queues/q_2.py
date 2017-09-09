@@ -13,7 +13,7 @@ class Stack:
         self.minimum = []
 
     def push(self, el):
-        self.minimum.append(el if el < minimum[len(minimum)-1] else minimum[-1])
+        self.minimum.append(el if self.minimum == [] and el < self.minimum[len(self.minimum)-1] else self.minimum[-1])
         self.stack.append(el)
 
     def pop(self):
