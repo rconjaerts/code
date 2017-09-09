@@ -25,7 +25,7 @@ class SetOfStacks:
     def pop(self):
         curr_stack = self.all_stacks[-1]
         el = curr_stack.pop()
-        if len(curr_stack) == 0:
+        if not curr_stack:
             self.all_stacks = self.all_stacks[:-1]
         return el
 

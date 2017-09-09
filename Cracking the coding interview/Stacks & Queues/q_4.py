@@ -15,7 +15,7 @@ class MyQueue:
 
     def add(self, el):
         if last_pop:
-            while len(self.to_remove) != 0:
+            while self.to_remove:
                 self.to_add.push(self.to_remove.pop())
 
         last_pop = False
@@ -23,7 +23,7 @@ class MyQueue:
     
     def remove(self):
         if not last_pop:
-            while len(self.to_add) != 0:
+            while self.to_add:
                 self.to_remove.push(self.to_add.pop())
         
         last_pop = True
@@ -31,7 +31,7 @@ class MyQueue:
 
     def peek(self):
         if not last_pop:
-            while len(self.to_add) != 0:
+            while self.to_add:
                 self.to_remove.push(self.to_add.pop())
         
         last_pop = True
