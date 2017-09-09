@@ -12,13 +12,13 @@ class Node:
         self.data = d
 
 def remove_duplicates(node, prev):
-    if node.data in all_data:
-        prev.next = node.next
-        if node.next:
-            remove_duplicates(node.next, prev)
-    else:
-        all_data.add(node.data)
-        if node.next:
-            remove_duplicates(node.next, node)
+    all_data = set()
 
-all_data = set()
+    while node:
+        if node.data in all_data:
+            prev.next = node.next
+            prev = node
+        else:
+            all_data.add(node.data)
+            prev = node
+        node = node.next

@@ -11,26 +11,19 @@ class Node:
     def __init__(self, d):
         self.data = d
 
-def find_node_k(node, k, count):
-    if k == count:
-        return node
-    elif node.next:
-        find_node_k(node.next, k, count+1)
-    else:
-        return None
-
 def get_k_to_last(node, k):
-    node_k = find_node_k(node, k, 0)
+    p1 = node
+    p2 = node
+    count = k
 
-    if node_k:
-        all_nodes = []
-        while node.next:
-            all_nodes.append(node)
-            node = node.next
-        all_nodes.append(node)
-        return all_nodes
-    else:
-        return False
+    # we first find the k-th element from the start
+    while count != 0:
+        count -= 1
+        p2 = p2.next
 
-k = 5
-k_to_last = get_k_to_last(head, k)
+    # we go all the way to the end with p2 and return p1 since the distance between p1 and p2 is exact k
+    while p2.next:
+        p1 = p1.next
+        p2 = p2.next
+    
+    return p1
