@@ -18,7 +18,7 @@ def is_palin_perm(string):
     for k, v in d.iteritems():
         if v%2 != 0 and uneven:
             return 'Not possible'
-        if v%2 != 0:
+        elif v%2 != 0:
             uneven = True
 
     return 'Possible'

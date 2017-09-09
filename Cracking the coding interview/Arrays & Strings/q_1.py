@@ -5,9 +5,11 @@ Solved: True
 '''
 
 def is_unique(word):
-    for i in range(len(word)):
-        if word[i] in word[i+1:]:
+    d = {}
+    for c in word:
+        if c in d:
             return 'Not unique!'
+        d[c] = 0
     
     return 'Unique'
 

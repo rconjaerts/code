@@ -5,6 +5,9 @@ Solved: True
 '''
 
 def is_permutation(word1, word2):
+    if len(word1) != len(word2):
+        return 'not a permutation'
+        
     d = {}
 
     for c in word1:
