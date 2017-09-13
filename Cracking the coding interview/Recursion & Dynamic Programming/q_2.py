@@ -5,7 +5,7 @@ Solved: True
 '''
 
 def is_out_grid(grid, location):
-    return True if location[0] >= len(grid) or location[1] >= len(grid[0]) else False
+    return location[0] >= len(grid) or location[1] >= len(grid[0])
 
 def is_off_limits(grid, location):
     return grid[location[0]][location[1]]
