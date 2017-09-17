@@ -58,10 +58,6 @@ def sort_all_chunks(num_chunks, output_size):
                 del open_files[smallest]
                 del input[smallest] 
                 del counter[smallest]
-
-    for file in open_files:
-        print('still doing this')
-        file.close
     sorted_file.close
 
 create_random_file(0, 900)
