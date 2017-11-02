@@ -1,3 +1,9 @@
+'''
+Problem: External Sorting
+Description: Implement external sorting (naive) to learn how it works
+Solved: True
+'''
+
 import random
 
 def create_random_file(start, end):
