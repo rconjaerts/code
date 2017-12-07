@@ -1,5 +1,5 @@
 import numpy as np 
-from layer import Layer
+from .layer import Layer
 
 class NeuralNetwork:
     def __init__(self, numb_of_layers, nodes_per_layer, type_of_output, input, targets):
@@ -8,10 +8,9 @@ class NeuralNetwork:
         self.type_of_output = type_of_output
         self.input = input
         self.targets = targets
-
         self.layers = []
 
-        prev_layer_numb_nodes = 0
+        prev_layer_numb_nodes = len(input[0])
         for i in range(numb_of_layers):
             l = Layer(nodes_per_layer[i], None, i, prev_layer_numb_nodes)
             self.layers.append(l)
@@ -36,10 +35,11 @@ class NeuralNetwork:
                 self.layers[-1].nodes[0].error_term = error
                 error_i.append(error)
 
-                for k in range(len(self.layers)-2, 0, -1):
-                    layer.update_weights(0.01, self.layers[k+1])
+                for k in range(len(self.layers)-2, -1, -1):
+                    self.layers[k].update_weights(0.1, self.layers[k+1])
 
             error_per_i.append(sum(error_i))
-        
-        print(error_i[0])
-        print(error_i[-1])
+            if i%50 == 0:
+                print(i)
+        print(error_per_i[0])
+        print(error_per_i[-1])

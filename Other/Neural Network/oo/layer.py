@@ -1,4 +1,4 @@
-from node import Node
+from .node import Node
 
 class Layer:
     # constructor
@@ -6,6 +6,7 @@ class Layer:
         self.numb_of_nodes = numb_of_nodes
         self.nodes = [Node(prev_layer_numb_nodes, 'sigmoid', i) for i in range(numb_of_nodes)]
         self.type_of_output = type_of_output
+        self.number = number
         
     def run_instance(self, input):
         if self.type_of_output:

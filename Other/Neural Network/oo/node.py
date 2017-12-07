@@ -9,6 +9,7 @@ class Node:
         self.latest_output = 0
         self.position = position
         self.x = None
+        self.error_term = None
 
     # calculate the error rating of the node
     def calculate_error_term(self, next_layer):
@@ -21,6 +22,7 @@ class Node:
     def update_weights(self, learning_rate, next_layer):
         error_term = self.calculate_error_term(next_layer)
         weight_update = np.multiply(learning_rate*error_term, self.x)
+        #print(weight_update)
         self.current_weights = np.add(self.current_weights, weight_update)
         return True
         
